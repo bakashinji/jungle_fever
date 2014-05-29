@@ -9,11 +9,13 @@
 //------------------------------------------------------------------------------
 using UnityEngine;
 using System.Collections;
+
         
 public class RecipeGUI : MonoBehaviour
 {
     public GUISkin customSkin;
     private Rect window;
+    public Vector2 scrollPosition = Vector2.zero;
 
     public bool showRecipe = true;
     void drawRecipeWindow(int windowID)
@@ -30,6 +32,44 @@ public class RecipeGUI : MonoBehaviour
         {
             showRecipe = false;
         }
+
+        int heightOffScrollView = 30 + Recipe.Items.Count * 40 + 30;
+
+        scrollPosition = GUI.BeginScrollView(new Rect(0,closeButton.height,window.width * 0.95f,window.height - closeButton.height * 2 ),scrollPosition, new Rect(0,0,window.width * 0.90f - 40,heightOffScrollView), false, false);
+
+        float countx = window.width * 0.1f;
+        float countwidth = window.width * 0.15f;
+        float namex = countx + countwidth + window.width * 0.05f;
+        float namewidth = window.width * 0.5f - 40;
+
+        float y = 30;
+        float height = 30;
+
+
+        foreach (var pair in Recipe.Items)
+        {
+
+            Rect countRect = new Rect();
+            countRect.x = countx;
+            countRect.width = countwidth; 
+            countRect.y = y;
+            countRect.height = height;
+
+            GUI.Label(countRect, pair.Value.ToString());
+
+            Rect nameRect = new Rect();
+            
+            nameRect.x = namex;
+            nameRect.width = namewidth;
+            nameRect.y = y;
+            y += height + 10;
+            nameRect.height = height;
+
+            
+            GUI.Label(nameRect, pair.Key);
+        }
+
+        GUI.EndScrollView();
 
 
 
@@ -59,6 +99,8 @@ public class RecipeGUI : MonoBehaviour
         rect.y = (float)(Screen.height * (1 - h)) / 2;
         rect.width = (float)Screen.width * w;
         rect.height = (float)Screen.height * h;
+
+        window = rect;
 
         
         // Make a background box

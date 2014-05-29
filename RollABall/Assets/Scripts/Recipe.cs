@@ -9,43 +9,30 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
-namespace AssemblyCSharp
+
+public abstract class Recipe
 {
-    public abstract class Recipe
+
+    private static  Dictionary<String, int> items;
+
+    public static Dictionary<String, int> Items
     {
-        public Recipe()
+        get
         {
+            return items;
         }
-
-       
-
-        private static Dictionary<Collectible, int> content;
-
-        public static void  foundCollectible(Collectible c)
-        {
-            if (content.ContainsKey(c))
-            {
-                if(content[c] > 1)
-                {
-                    content[c]--;
-                }
-                else
-                {
-                    content.Remove(c);
-                }
-            }
-
-            if (content.Count == 0)
-            {
-                this.onFinishedRecipe();
-            }
-
-        }
-
-        private void onFinishedRecipe()
-        {
-        }
-
-
     }
+
+    static Recipe()
+    {
+
+		items = new Dictionary<String, int>;
+        items.Add("Annanas", 3);
+        items.Add("Bananen", 15);
+        items.Add("Schnittlauch", 25);
+        items.Add("Salamandablut", 2);
+    }
+
+}
+
 
