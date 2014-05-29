@@ -13,36 +13,47 @@ using System.Collections;
 public class RecipeGUI : MonoBehaviour
 {
     public GUISkin customSkin;
+    private Rect window;
 
-	void drawRecipeWindow(int windowID)
-	{
-		
-		Rect closeButton;
+    void drawRecipeWindow(int windowID)
+    {
+        
+        Rect closeButton = new Rect();
 
-		//closeButton.width = 
-		
-			System.Console.Out.Write (Screen.width);
+        closeButton.width = 0.075f * window.width;
+        closeButton.height = closeButton.width;
 
-	}
-	
-	void OnGUI()
-	{
-		
-		GUI.skin = customSkin;
-		System.Console.Out.Write ((float)Screen.width);
-		
-		
-		float w = 0.3f; // proportional width (0..1)
-		float h = 0.7f; // proportional height (0..1)
-		Rect rect = new Rect();
-		rect.x = (float)(Screen.width*(1-w))/2;
-		rect.y = (float)(Screen.height*(1-h))/2;
-		rect.width = (float)Screen.width*w;
-		rect.height = (float) Screen.height*h;
+        closeButton.x =  window.width -  closeButton.width;
+        
+        //closeButton.y = window.y + window.height - 2f * closeButton.height;
 
-		
-		// Make a background box
-		GUI.Window (1, rect, drawRecipeWindow, "Recipe");
+        if (GUI.Button(closeButton, "X"))
+        {
+            Debug.Log("Closed");
+        }
+
+        //closeButton.width = 
+
+
+    }
+    
+    void OnGUI()
+    {
+        
+        GUI.skin = customSkin;
+        
+        
+        float w = 0.3f; // proportional width (0..1)
+        float h = 0.7f; // proportional height (0..1)
+        Rect rect = new Rect();
+        rect.x = (float)(Screen.width * (1 - w)) / 2;
+        rect.y = (float)(Screen.height * (1 - h)) / 2;
+        rect.width = (float)Screen.width * w;
+        rect.height = (float)Screen.height * h;
+
+        
+        // Make a background box
+        window = GUI.Window(1, rect, drawRecipeWindow, "Recipe");
     }
 }
 
