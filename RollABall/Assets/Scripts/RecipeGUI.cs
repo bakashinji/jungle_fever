@@ -15,6 +15,7 @@ public class RecipeGUI : MonoBehaviour
     public GUISkin customSkin;
     private Rect window;
 
+    public bool showRecipe = true;
     void drawRecipeWindow(int windowID)
     {
         
@@ -24,23 +25,31 @@ public class RecipeGUI : MonoBehaviour
         closeButton.height = closeButton.width;
 
         closeButton.x =  window.width -  closeButton.width;
-        
-        //closeButton.y = window.y + window.height - 2f * closeButton.height;
 
         if (GUI.Button(closeButton, "X"))
         {
-            Debug.Log("Closed");
+            showRecipe = false;
         }
 
-        //closeButton.width = 
 
 
+    }
+
+    void Update() {
+        if (Input.GetKeyDown("r"))
+            showRecipe = !showRecipe;
+        
     }
     
     void OnGUI()
     {
         
         GUI.skin = customSkin;
+
+        if (!showRecipe)
+        {
+            return;
+        }
         
         
         float w = 0.3f; // proportional width (0..1)
