@@ -1,0 +1,34 @@
+characters:
+the shaman, a young agile man/woman who has trained been trained for a short period of time by the older now passed away shaman
+the nurse, a loving carer of the sick. Also always gets your spirits high when you are down
+the doctor, an old geezer that can't get his meds fast enough. Also he doesn't believe in shamanism, but that doesn't stop him from getting you to do the field work
+the villagers: Recently they have been getting sicker and sicker while you (the shaman) are trying to find out the reason for the recent outbreak of several sicknesses. They still do their daily work and will help you whenever they can.
+
+the bad guy: you don't know him yet, but he has been experimenting with plants, which is why you can't just gather your herbs anymore. Those plants will try to kill you, so be aware.
+the other bad guy: you will find this guy in the end, he is experimenting in another facility with bioweapons which seemed to have leaked out of the lab recently.
+
+Storyline:
+  You (the shaman) sit next to your mentors deathbed because he left the herbs meant for his rescue to another villager. It is a very sad moment in which you swear to find out why the sickness rate is rising so high. After that you go to the hospital where the doctor whines about how little he can do without the herbs and that he has to stay here while you work.
+  A little offended by the arrogant doctor you make yourself on your way --> here starts the demo
+
+
+After fulfilling a few of the doctor's errands you find a hint, while slaying down some of the plants as to where you could find the origin of the living, annoying plants
+
+
+Missionsablauf:
+
+ - Start im Krankenhaus:
+ - Dr sagt was fuer Kraeuter man ihm bringen soll:
+   "Dear shaman, if you believe it or not... the almost extinguished XYZ sickness has returned to our small village..
+   "Isn't the herb *** the best cure for that"
+   "Well hold your horses there shaman, nobody is asking you about your voodoo"
+   "Do you have any better guess?"
+   "..."
+   "Well I'll get some while you look for another cure"
+
+ - Start im Krankenhaus, bei erster Mission ein Tutorial mit: WASD Steuerungserklaerung und den anderen Steuerungselementen im Verlauf der ersten Mission.
+ - Nach abklappern der verschiedenen Stationen wird angezeigt dass man die verschiedenen Missionsziele erfuellt hat.
+
+   evtl waer eine Minimap nicht so schlecht.
+
+ - Bei einer spaeteren Mission trifft shaman auf eine groessere staerker mutierte pflanze welche ihm das Leben schwer macht (Zwischenboss). Nach besiegen dieser findet er Hinweise darauf dass tiefer im Wald weitere Hinweise bzgl der Krankheiten vorhanden sein koennten.
