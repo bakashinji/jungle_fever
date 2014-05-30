@@ -47,6 +47,14 @@ public class Recipe
         vaccination = new Dictionary<String,int >();
         vaccination.Add("Baumrinde", 15);
         vaccination.Add("Sesam", 2);
+		vaccination.Add("Baumrinde2", 15);
+		vaccination.Add("Sesam2", 2);
+		vaccination.Add("Baumrinde3", 15);
+		vaccination.Add("Sesam3", 2); 
+		vaccination.Add("Baumrinde4", 15);
+		vaccination.Add("Sesam4", 2);
+
+
     }
     
 }

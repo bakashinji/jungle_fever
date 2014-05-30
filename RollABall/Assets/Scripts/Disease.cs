@@ -24,8 +24,11 @@ public class Disease : MonoBehaviour {
 	private int amountTotalKilled = 0;
 	private int amountTotalInfected = 0;
 
+	public Recipe recipe;
+
 	// Use this for initialization
 	void Start () {
+		recipe = new Recipe (diseaseName);
 		InvokeRepeating ("DiseaseSimulator", 0.1f, 1.0f);
 	}
 
