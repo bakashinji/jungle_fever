@@ -1,0 +1,76 @@
+characters:
+the shaman, a young agile man/woman who has trained been trained for a short period of time by the older now passed away shaman
+the nurse, a loving carer of the sick. Also always gets your spirits high when you are down
+the doctor, an old geezer that can't get his meds fast enough. Also he doesn't believe in shamanism, but that doesn't stop him from getting you to do the field work
+the villagers: Recently they have been getting sicker and sicker while you (the shaman) are trying to find out the reason for the recent outbreak of several sicknesses. They still do their daily work and will help you whenever they can.
+the pharmacist: You go to him and order medicine based on the herbs you have. A nice lad that seemed to have tested more than enough of his shares
+
+the bad guy: you don't know him yet, but he has been experimenting with plants, which is why you can't just gather your herbs anymore. Those plants will try to kill you, so be aware.
+the other bad guy: you will find this guy in the end, he is experimenting in another facility with bioweapons which seemed to have leaked out of the lab recently.
+
+Storyline:
+  You (the shaman) sit next to your mentors deathbed because he left the herbs meant for his rescue to another villager. It is a very sad moment in which you swear to find out why the sickness rate is rising so high. After that you go to the hospital where the doctor whines about how little he can do without the herbs and that he has to stay here while you work.
+  A little offended by the arrogant doctor you make yourself on your way --> here starts the demo
+
+
+After fulfilling a few of the doctor's errands you find a hint, while slaying down some of the plants as to where you could find the origin of the living, annoying plants
+
+
+Missionsablauf:
+
+ - Start im Krankenhaus:
+ - Dr sagt was fuer Kraeuter man ihm bringen soll:
+   "Dear shaman, if you believe it or not... the almost extinguished XYZ sickness has returned to our small village..
+   "Isn't the herb *** the best cure for that"
+   "Well hold your horses there shaman, nobody is asking you about your voodoo"
+   "Do you have any better guess?"
+   "..."
+   "Well I'll get some while you look for another cure"
+
+ - Start im Krankenhaus, bei erster Mission ein Tutorial mit: WASD Steuerungserklaerung und den anderen Steuerungselementen im Verlauf der ersten Mission.
+ - Nach abklappern der verschiedenen Stationen wird angezeigt dass man die verschiedenen Missionsziele erfuellt hat.
+
+   evtl waer eine Minimap nicht so schlecht.
+
+ - Bei einer spaeteren Mission trifft shaman auf eine groessere staerker mutierte pflanze welche ihm das Leben schwer macht (Zwischenboss). Nach besiegen dieser findet er Hinweise darauf dass tiefer im Wald weitere Hinweise bzgl der Krankheiten vorhanden sein koennten.
+
+ 
+
+Kraeuterverwaltung:
+  - Jedes Kraut hat eine Beschreibung welche Hinweise darauf gibt welche Krankheiten davon geheilt werden, bzw. welche Medizin daraus erstellt werden kann. 
+  - Falls ein neues Kraut gefunden wird muss es zum Apotheker gebracht werden, damit er die Effekte davon erforschen kann.
+  - Nach Ablauf einer bestimmten Zeitspanne werden die Ergebnisse bekannt gegeben.
+  - Nach genuegend forschungsmaterial findet der Apotheker eine Heilung fuer die Krankheit --> diese Krankheit kann nicht mehr ausbrechen
+
+
+Dorf:
+  1000 Leute am Anfang
+
+
+Krankheitsverlauf:
+  - Leute die krank sind werden nach Ablauf einiger Zeit immer kraenker, bis zum eventuellen Tod.
+  - Abhaengig von der Krankheit geht das schneller oder langsamer
+  - Wenn zu viele Leute des Dorfes an Krankheiten gestorben sind --> Game Over
+  - Krankheiten spawnen abhaengig vom Spielfortschritt mit verschiedenen Wahrscheinlichkeiten (Tragischere Krankheiten --> niedrigere Wahrscheinlichkeiten)
+  - Immediate Medizin heilt 60% der Kranken und daemmt die Ausbreitungsrate auf 50%
+  - Sollte der Spieler feststecken da er sein Dorf zu nahe an den Rand des Verderbens gebracht hat wird ihm nach 3 Versuchen ein bisschen mehr Population ins Dorf gegeben (andere Moeglichkeit ist, dass)
+  - Die Dorfpopulation erholt sich mit der Zeit
+  - Wenn eine neue Krankheit auftaucht popped ein POPUP auf welches den Krankheitsverlauf erklaert
+
+Krankheiten:
+  - Jungle Fever:
+    A Fever which should actually not appear in these grounds, as we are to far north, right? Well the doctor reported that he has had the first case of jungle fever which is spreading fast. Fortunately it takes a while to lead to death so you have enough time to gather your Material.
+    The pharmacist told you to gather: Herb A, B and C for fast treatment. Also you should be on the lookout for Herb D, E for long time treatment with which we can defeat the sickness totally.
+    Spreading Rate: 5 per 5 Min
+    For every Sick Person Spreads an additional 2 per 5 min
+    Death: after 5mins from Infection
+  - Pest:
+    The Black Death has returned. At first you hardly believed the message received from the doc, but why should he lie? As you know the Pest is highly contagious, so you should get Herbs from the Forest fast.
+    The pharmacist told you to gather: 3 Herb F and  5 G for immediate treatment. Also look for Herb H and 2 I for a possible medicine which defeats the sickness totally.
+    Spreading Rate: 5 per 5 min
+    For every Sick Person Spreads and additional 3 per 5 min
+    Death: after 5mins from Infection
+
+
+
+
