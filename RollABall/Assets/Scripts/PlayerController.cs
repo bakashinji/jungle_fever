@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : LivingObject
 {
 	public AnimationClip idleAnimation;
 	public AnimationClip walkAnimation;
@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 	public float trotSpeed = 4.0F;
 	// when pressing "Fire3" button (cmd) we start running
 	public float runSpeed = 6.0F;
+	public float blinkDistance = 2.0F;
 	
 	public float inAirControlAcceleration = 3.0F;
 	
@@ -92,14 +93,23 @@ public class PlayerController : MonoBehaviour
 	
 	private bool isControllable = true;
 	
-	
-	public string hitTag;
-	private Weapon weapon;
-	
+
+	public int hp = 1000;
+	public int xp = 0;
+
+
+	public string hitTag = "Enemy";
+	public string pickUpTag = "PickUp";
+
 	// Use this for initialization
 	void Awake()
 	{
+		health = hp;
+		experience = xp;
+
 		moveDirection = transform.TransformDirection(Vector3.forward);
+
+		weapon = new Knife (hitTag, this);
 		
 		_animation = GetComponent<Animation>();
 		if (!_animation)
@@ -136,8 +146,6 @@ public class PlayerController : MonoBehaviour
 				break;
 			}
 		}
-		
-		weapon = new Knife(hitTag);
 	}
 	void Update()
 	{
@@ -151,6 +159,8 @@ public class PlayerController : MonoBehaviour
 			lastJumpButtonTime = Time.time;
 		
 		UpdateSmoothedMovementDirection();
+		UpdateAttackDirection();
+		UpdateBlink ();
 		
 		// Apply gravity
 		// - extra power jump modifies gravity
@@ -254,9 +264,9 @@ public class PlayerController : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "PickUp")
+        if (other.gameObject.tag == pickUpTag)
         {
-            other.gameObject.SetActive(false);
+			other.gameObject.GetComponent<PickUp>().OnPickUp(this);
         }
     }
 	
@@ -359,6 +369,39 @@ public class PlayerController : MonoBehaviour
 				inAirVelocity += targetDirection.normalized * Time.deltaTime * inAirControlAcceleration;
 		}
 	}
+	void UpdateAttackDirection()
+	{
+		if (Input.GetMouseButtonUp (0))
+		{
+			RaycastHit hit;
+			if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
+			{
+				var hitPoint = hit.point;
+				hitPoint.y = transform.position.y;
+
+				var direction = (hitPoint -transform.position).normalized;
+
+				weapon.attack(transform.position, direction);
+			}
+		}
+	}
+	void UpdateBlink()
+	{
+		if (Input.GetKeyUp (KeyCode.Q))
+		{
+			RaycastHit hit;
+			if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
+			{
+				var dest = hit.point;
+				var direction = (dest -transform.position).normalized;
+
+				direction *= blinkDistance;
+
+				CharacterController controller = GetComponent<CharacterController>();
+				collisionFlags = controller.Move(direction);
+			}
+		}
+	}
 	
 	void ApplyJumping()
 	{
@@ -414,6 +457,17 @@ public class PlayerController : MonoBehaviour
 		lastJumpButtonTime = -10;
 		
 		_characterState = CharacterState.Jumping;
+	}
+
+	public override void OnHit(LivingObject attacker)
+	{
+		health -= attacker.weapon.damage;
+		Debug.Log(name + " remaining health: " + health);
+
+		if (health <= 0)
+		{
+			Debug.Log(attacker.name + " killed player :(");
+		}
 	}
 	
 	

@@ -2,26 +2,30 @@ using UnityEngine;
 
 public class Knife : Weapon
 {
-	public Knife (string tag)
-		: base(tag)
+	public Knife (string tag, LivingObject obj)
+		: base(tag, obj)
 	{
 		_damage = 20;
-		_range = 10;
+		_range = 3;
+		coolDown = 1;
 	}
 
 	public override bool attack(Vector3 src, Vector3 direction)
 	{
-		int layer = 0;
-		layer = 1 << 8;
-		
+		if (!isReady ())
+			return false;
+		updateFire ();
+
+		int layer = 1 << 8;
 
 		RaycastHit hit;
 		Ray r = new Ray(src, direction);
-		if(Physics.Raycast(r, out hit, Mathf.Infinity, layer))
+		if(Physics.Raycast(r, out hit, _range, layer))
 		{
 			if(hit.collider.tag == base.hitTag)
 			{
-				Debug.Log("We hit some " + base.hitTag);
+				hit.collider.GetComponent<LivingObject>().OnHit(base._user);
+				return true;
 			}
 		}
 		return false;
