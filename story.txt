@@ -74,3 +74,31 @@ Krankheiten:
     Death: after 5mins from Infection with 60% afterwards person is evaluated after 1 Min again with +5% to Mortality
 
 
+
+
+
+Demo Level:
+  shaman steht im hospital:
+  Textboxen mit der bisherigen Story poppen auf:
+
+  The doctor just called you in to tell you of the recent outbreak of jungle fever. A deadly sickness which was believed to be extinguished, which is why there is no medication for it. Well you are a shaman and you know your herbs. You also talked to the local pharmacist in order to locate a possible vaccine which could stop further outbreaks. You know what herbs to gather in order to cure the sickness and what to gather for the vaccine. Now go and gather!
+
+  Danach wird auf der Minimap die Location der verschiedenen Kraeuter angezeigt.
+
+  Der Spieler macht sich auf den Weg um die Kraeuter zu gathern und trifft dabei auf Pflanzen welche er toeten muss.
+
+  Nebenbei sollte der Spieler immer die derzeitige Ausbreitung der Krankheit im Blickfeld halten, damit ihm nicht das Dorf wegstirbt.
+
+  Sobald der Spieler alle fuer die Grundmedizin gesammelt hat wird ihm angezeigt dass er ins Krankenhaus zurueckkehren soll.
+
+  Dort angekommen wird dem Spieler mittgeteilt:
+
+  The pharmacist created a medicine with the herbs you provided. #Ppl have been healed and the sickness won't progress as fast during the next 10 minutes. Keep searching for the vaccine herbs.
+
+  Danach sucht der Spieler weiter nach den vaccine herbs. Eines dieser Herbs dropped von einem Zwischenboss.
+
+  Sobald er diese Herbs hat wird dem Spieler angezeigt dass er ins Krankenhaus zurueckkehren soll.
+
+  Dort angekommen:
+
+  The pharmacist created a vaccine with the herbs you provided. The people of your village are thankful for the medicine you provided. You should gather enough medicine to heal the remaining people.
