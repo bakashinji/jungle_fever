@@ -9,10 +9,11 @@
 //------------------------------------------------------------------------------
 using System;
 using UnityEngine;
+using System.Collections;
 
 namespace AssemblyCSharp
 {
-    public class Collectible : MonoBehavior, BoxCollider
+	public class Collectible : MonoBehaviour //, BoxCollider // multiple inheritance
     {
 
 
@@ -23,7 +24,7 @@ namespace AssemblyCSharp
 
         void OnTriggerEnter (Collider other)
         {
-            gameObject.renderer.isVisible = false;
+            //gameObject.renderer.isVisible = false; // read only
             Recipe.foundCollectible(this);
         }
     }

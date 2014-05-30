@@ -37,15 +37,16 @@ namespace AssemblyCSharp
 
             if (content.Count == 0)
             {
-                this.onFinishedRecipe();
+				onFinishedRecipe();//this.onFinishedRecipe();
             }
 
         }
 
-        private void onFinishedRecipe()
+        private static void onFinishedRecipe()
         {
         }
 
 
     }
 
+}
