@@ -20,8 +20,10 @@ public class Knife : Weapon
 
 		RaycastHit hit;
 		Ray r = new Ray(src, direction);
-		if(Physics.Raycast(r, out hit, _range, layer))
+		if(Physics.Raycast(r, out hit, Mathf.Infinity, layer))
 		{
+			Debug.Log(hit.collider.name);
+
 			if(hit.collider.tag == base.hitTag)
 			{
 				hit.collider.GetComponent<LivingObject>().OnHit(base._user);
