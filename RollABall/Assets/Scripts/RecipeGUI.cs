@@ -8,41 +8,170 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using System;
         
 public class RecipeGUI : MonoBehaviour
 {
     public GUISkin customSkin;
+    private Rect window;
+    private Vector2 scrollPositionHover = Vector2.zero;
+    private Vector2 scrollPositionStats = Vector2.zero;
+    private Recipe shownRecipe = null;
 
-	void drawRecipeWindow(int windowID)
-	{
-		
-		Rect closeButton;
+    private Rect box;
 
-		//closeButton.width = 
-		
-			System.Console.Out.Write (Screen.width);
+    void drawRecipeWindow(int windowID)
+    {
+        float padding = 0.075f * window.width;
+        Rect closeButton = new Rect(window.width * 0.925f, 0, padding, padding);
 
-	}
-	
-	void OnGUI()
-	{
-		
-		GUI.skin = customSkin;
-		System.Console.Out.Write ((float)Screen.width);
-		
-		
-		float w = 0.3f; // proportional width (0..1)
-		float h = 0.7f; // proportional height (0..1)
-		Rect rect = new Rect();
-		rect.x = (float)(Screen.width*(1-w))/2;
-		rect.y = (float)(Screen.height*(1-h))/2;
-		rect.width = (float)Screen.width*w;
-		rect.height = (float) Screen.height*h;
+        if (GUI.Button(closeButton, "X"))
+        {
+            shownRecipe = null;
+            return;
+        }
+       
+   
 
-		
-		// Make a background box
-		GUI.Window (1, rect, drawRecipeWindow, "Recipe");
+        int heightOffScrollView = 30 + shownRecipe.Medicine.Count * 40 + shownRecipe.Vaccination.Count * 40 + 100;
+
+        scrollPositionHover = GUI.BeginScrollView(new Rect(0, padding, window.width * 0.95f, window.height - padding * 2), scrollPositionHover, new Rect(0, 0, window.width * 0.90f - 40, heightOffScrollView), false, false);
+
+
+        
+        float y = 10;
+        Rect MedicineTitleRect = new Rect(10, y, window.width, 30);
+        GUI.Label(MedicineTitleRect, "Medicine");
+
+        y += 40;
+
+        y = printList(shownRecipe.Medicine, y);
+
+        y += 10;
+        
+        Rect VaccinationTitleRect = new Rect(10, y, window.width, 30);
+        GUI.Label(VaccinationTitleRect, "Vaccination");
+        
+        y += 40;
+
+
+        y = printList(shownRecipe.Vaccination, y);
+
+
+        GUI.EndScrollView();
     }
+
+    private float printList(Dictionary<String,int> d, float y)
+    {
+    
+        float countx = window.width * 0.1f;
+        float countwidth = window.width * 0.15f;
+        float namex = countx + countwidth + window.width * 0.05f;
+        float namewidth = window.width * 0.5f - 40;
+
+        float height = 30;
+        
+        
+        foreach (var pair in shownRecipe.Medicine)
+        {
+            
+            Rect countRect = new Rect();
+            countRect.x = countx;
+            countRect.width = countwidth; 
+            countRect.y = y;
+            countRect.height = height;
+
+            int countInventory = 0;
+
+            if(Inventory.Items.ContainsKey(pair.Key))
+            {
+                countInventory = Inventory.Items[pair.Key];
+            }
+            
+            GUI.Label(countRect, countInventory + " / " +  pair.Value.ToString());
+            
+            Rect nameRect = new Rect();
+            
+            nameRect.x = namex;
+            nameRect.width = namewidth;
+            nameRect.y = y;
+            y += height + 10;
+            nameRect.height = height;
+            
+            
+            GUI.Label(nameRect, pair.Key);
+        }
+
+        return y;
+    }
+
+    void Update()
+    {
+
+    }
+    
+    void OnGUI()
+    {
+        
+        GUI.skin = customSkin;
+
+
+        box = new Rect(0, Screen.height * 0.75f, Screen.width * 0.25f, Screen.height * 0.25f);
+
+        GUI.Box(box, "");
+
+        scrollPositionStats = GUI.BeginScrollView(new Rect(box.x, box.y + 15, box.width - 10, box.height - 30), scrollPositionStats, new Rect(0,0, box.width * 0.9f, Stats.Dieseases.Count * 40 + 30)); 
+
+        float y = 10;
+
+        foreach (var rec in Stats.Dieseases)
+        {
+            GUIContent content = new GUIContent("");
+            GUIStyle style = GUIStyle.none;
+           
+            Rect countRect = new Rect(20,y,20,30);
+            GUI.Label(countRect, rec.Value.ToString());
+
+            Rect nameRect = new Rect(60,y, box.width - 70, 30);
+
+
+            Recipe rep = rec.Key;
+            GUI.Label(nameRect, rep.name);
+
+            GUI.Label(new Rect(20,y,box.width - 30, 30), content, style);
+
+            if((new Rect(20,y,box.width - 30, 30)).Contains(Event.current.mousePosition))
+            {
+                shownRecipe = rec.Key;
+            }
+
+            y += 40;
+        }
+
+        GUI.EndScrollView();
+
+        if(shownRecipe == null)
+        {
+            return;
+        }
+        
+        
+        float w = 0.3f; // proportional width (0..1)
+        float h = 0.7f; // proportional height (0..1)
+        Rect rect = new Rect();
+        rect.x = (float)(Screen.width * (1 - w)) / 2;
+        rect.y = (float)(Screen.height * (1 - h)) / 2;
+        rect.width = (float)Screen.width * w;
+        rect.height = (float)Screen.height * h;
+
+        window = rect;
+
+        
+        // Make a background box
+        window = GUI.Window(1, rect, drawRecipeWindow, shownRecipe.name);
+    }
+
+
 }
 

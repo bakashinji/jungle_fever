@@ -8,29 +8,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
-using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
-namespace AssemblyCSharp
+public abstract class Inventory
 {
-	public class Collectible : MonoBehaviour //, BoxCollider // multiple inheritance
+
+    private static Dictionary<String,int> items;
+
+    public static Dictionary<String, int> Items
     {
-
-
-        public Collectible()
+        get
         {
-
-        }
-
-        void OnTriggerEnter (Collider other)
-        {
-            //gameObject.renderer.isVisible = false; // read only
-            Recipe.foundCollectible(this);
+            return items;
         }
     }
 
-   
+    static Inventory()
+    {
+        items = new Dictionary<String,int >();
 
-
+        items.Add("Ananas", 5);
+    }
 }
+
 
