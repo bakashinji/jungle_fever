@@ -55,12 +55,22 @@ public class Population : MonoBehaviour {
 
 	public void InfectPeople(int newInfected)
 	{
-		infected += newInfected;
+		if ((newInfected + infected) > ((int)population))
+			infected = (int)population;
+		else
+			infected += newInfected;
 	}
 
 	public void KillPeople(int deadPeople)
 	{
+		if (deadPeople > ((int)population)) {
+			population = 0;
+			infected = 0;
+			return;
+		}
 		population -= deadPeople;
 		infected -= deadPeople;
+		if (infected > population)
+			infected = (int)population;
 	}
 }
