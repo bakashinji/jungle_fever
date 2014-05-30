@@ -2,10 +2,10 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\RecipeGUI.cs">
     <Files>
-      <File FileName="Assets\Scripts\RecipeGUI.cs" Line="139" Column="107" />
-      <File FileName="Assets\Scripts\Recipe.cs" Line="27" Column="5" />
-      <File FileName="Assets\Scripts\Inventory.cs" Line="12" Column="1" />
-      <File FileName="Assets\Scripts\Stats.cs" Line="21" Column="10" />
+      <File FileName="Assets\Scripts\RecipeGUI.cs" Line="107" Column="6" />
+      <File FileName="Assets\Scripts\Recipe.cs" Line="55" Column="1" />
+      <File FileName="Assets\Scripts\Inventory.cs" Line="35" Column="1" />
+      <File FileName="Assets\Scripts\Stats.cs" Line="18" Column="52" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
