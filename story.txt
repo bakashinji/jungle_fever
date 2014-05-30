@@ -39,7 +39,7 @@ Missionsablauf:
 Kraeuterverwaltung:
   - Jedes Kraut hat eine Beschreibung welche Hinweise darauf gibt welche Krankheiten davon geheilt werden, bzw. welche Medizin daraus erstellt werden kann. 
   - 2 Typen von Medizin die aus Kraeutern erstellt werden kann.
-    - Immediate Medicine: Heilt 60% der Kranken aber zumindest 50 Leute + reduziert die Ausbreitungsrate auf 50%
+    - Immediate Medicine: Heilt 60% der Kranken aber zumindest 50 Leute + reduziert die Ausbreitungsrate auf 50% fuer 10Min. Die Ausbreitungsrate wird nicht weiter reduziert sofern mehrere Medikamente erstellt werden. Allerdings erhoeht sich die Zeitdauer um weitere 10 Minuten und die Heilung der Kranken wird ausgefuehrt.
     - Impfung: Der Apotheker erstellt aus den Kraeutern eine Impfung welche die Ausbreitungsrate sofort auf 0 reduziert.
   - Nach Ablauf einer bestimmten Zeitspanne werden die Ergebnisse bekannt gegeben.
   - Nach genuegend forschungsmaterial findet der Apotheker eine Heilung fuer die Krankheit --> diese Krankheit kann nicht mehr ausbrechen
@@ -55,7 +55,7 @@ Krankheitsverlauf:
   - Wenn zu viele Leute des Dorfes an Krankheiten gestorben sind --> Game Over
   - Krankheiten spawnen abhaengig vom Spielfortschritt mit verschiedenen Wahrscheinlichkeiten (Tragischere Krankheiten --> niedrigere Wahrscheinlichkeiten)
   - Immediate Medizin heilt 60%, zumindest 50 der Kranken und daemmt die Ausbreitungsrate auf 50% (stack'd nicht auch wenn man mehrere shots der medizin nacheinander erstellt)
-  - Sollte der Spieler feststecken da er sein Dorf zu nahe an den Rand des Verderbens gebracht hat wird ihm nach 3 Versuchen ein bisschen mehr Population ins Dorf gegeben (andere Moeglichkeit ist, dass)
+  - Sollte der Spieler feststecken da er sein Dorf zu nahe an den Rand des Verderbens gebracht hat wird ihm nach 3 Versuchen ein bisschen mehr Population ins Dorf gegeben (andere Moeglichkeit ist, dass die Sterberate sowie die Ausbreitungsrate auf nahe 0% fuer 10/20 Minuten gesetzt wird)
   - Die Dorfpopulation erholt sich mit der Zeit
   - Wenn eine neue Krankheit auftaucht popped ein POPUP auf welches den Krankheitsverlauf erklaert
 
@@ -63,14 +63,14 @@ Krankheiten:
   - Jungle Fever:
     A Fever which should actually not appear in these grounds, as we are to far north, right? Well the doctor reported that he has had the first case of jungle fever which is spreading fast. Fortunately it takes a while to lead to death so you have enough time to gather your Material.
     The pharmacist told you to gather: Herb A, B and C for fast treatment. Also you should be on the lookout for Herb D, E for long time treatment with which we can a vaccine.
-    Spreading Rate: 5 per 5 Min
-    For every Sick Person Spreads an additional 2 per 5 min
-    Death: after 5mins from Infection
+    Spreading Rate: 1 per 1 Min with 50%
+    For every 5 Sick Persons Spreads an additional 1 per 1 min (Prob stays the same)
+    Death: after 5mins from Infection with 30% afterwards person is evaluated after 1 Min again with +5% to Mortality
   - Pest:
     The Black Death has returned. At first you hardly believed the message received from the doc, but why should he lie? As you know the Pest is highly contagious, so you should get Herbs from the Forest fast.
     The pharmacist told you to gather: 3 Herb F and  5 G for immediate treatment. Also look for Herb H and 2 I for a possible medicine which defeats the sickness totally.
-    Spreading Rate: 5 per 5 min
-    For every Sick Person Spreads and additional 3 per 5 min
-    Death: after 5mins from Infection
+    Spreading Rate: 1 per 1 min with 70% 
+    For every 3 Sick Person Spreads and additional 2 per 1 min (prob stays the same)
+    Death: after 5mins from Infection with 60% afterwards person is evaluated after 1 Min again with +5% to Mortality
 
 
