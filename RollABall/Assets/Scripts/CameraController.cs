@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
@@ -13,7 +12,8 @@ public class CameraController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () {
+	void LateUpdate ()
+	{
 		transform.position = player.transform.position+offset;
 	
 	}
