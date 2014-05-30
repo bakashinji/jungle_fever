@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		if(other.gameObject.tag =="PickUp")
 		{
-			other.gameObject.SetActive(false);
+			other.gameObject.SetActive(false); // add to inventory
 		}
 	}
 }

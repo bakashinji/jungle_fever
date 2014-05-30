@@ -9,14 +9,18 @@ public class Minimap : MonoBehaviour {
 	// adapted by iseratho
 	
 	
-	public Texture blip;
+	public Texture pickup;
+	public Texture home;
+	public Texture enemy;
 	public Texture radarBG;
 	
 	public Transform centerObject ;
 	public float mapScale = 1.3f;
 	public Vector2 mapCenter = new Vector2(Screen.width,Screen.height);
-	public string tagFilter =  "PickUp";
-	public float maxDist = 200;
+	public string tagPickup =  "PickUp";
+	public string tagHome = "Home";
+	public string tagEnemy = "Enemy";
+	public float maxDistEnemy = 20;
 	public int width = 80;
 	public int height = 80;
 	public int minimap_posx = 40; //offset
@@ -34,7 +38,6 @@ public class Minimap : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 	
 	void OnGUI() 
@@ -50,24 +53,29 @@ public class Minimap : MonoBehaviour {
 		mapCenter = new Vector2(Screen.width - width - screen_offset,0 + height + screen_offset);
 		
 		GUI.DrawTexture(new Rect(mapCenter.x-minimap_posx,mapCenter.y-minimap_posy, width, height),radarBG);
-		DrawBlipsFor(tagFilter);
+		DrawBlipsFor(tagPickup, pickup);
+		DrawBlipsFor(tagHome, home);
+		DrawBlipsFor(tagEnemy, enemy);
 		
 	}
 	
-	private void DrawBlipsFor(string tagName)
+	private void DrawBlipsFor(string tagName, Texture aTexture)
 	{
 		
 		// Find all game objects with tag 
 		GameObject[] gos = GameObject.FindGameObjectsWithTag(tagName); 
-		
+
+		bool enemy = false;
+		if (tagName == "Enemy")
+			enemy = true;
 		// Iterate through them
 		foreach (GameObject go in gos)  
 		{ 
-			drawBlip(go,blip);
+			drawBlip(go, aTexture, enemy);
 		}
 	}
 	
-	private void drawBlip(GameObject go,Texture aTexture)
+	private void drawBlip(GameObject go,Texture aTexture, bool enemy)
 	{
 		Vector3 centerPos=centerObject.position;
 		Vector3 extPos=go.transform.position;
@@ -91,10 +99,17 @@ public class Minimap : MonoBehaviour {
 		dx=dx*mapScale; // scales down the x-coordinate by half so that the plot stays within our radar
 		dz=dz*mapScale; // scales down the y-coordinate by half so that the plot stays within our radar
 		
-		if(dist<= maxDist)
-		{ 
+		if (dist <= maxDistEnemy || !enemy) { 
 			// this is the diameter of our largest radar circle
-			GUI.DrawTexture(new Rect(mapCenter.x-dx,mapCenter.y+dz,blip_size,blip_size),aTexture);
+			if (dx > width/2)
+				dx = width/2;
+			if (dx < -width/2)
+				dx = -width/2;
+			if (dz > height/2)
+				dz = height/2;
+			if (dz < -height/2)
+				dz = -height/2;
+			GUI.DrawTexture (new Rect (mapCenter.x - dx, mapCenter.y + dz, blip_size, blip_size), aTexture);
 		}
 	}	
 }

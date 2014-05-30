@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Minimap.cs" />
      <Compile Include="Assets\Palace of Orinthalian\Standard Assets\Image Effects (Pro Only)\BlurEffect.cs" />
      <Compile Include="Assets\Palace of Orinthalian\Standard Assets\Image Effects (Pro Only)\ColorCorrectionEffect.cs" />
      <Compile Include="Assets\Palace of Orinthalian\Standard Assets\Image Effects (Pro Only)\ContrastStretchEffect.cs" />
@@ -75,6 +74,7 @@
      <Compile Include="Assets\Palace of Orinthalian\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\WaterTile.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\Collectible.cs" />
+     <Compile Include="Assets\Scripts\Minimap.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Recipe.cs" />
      <Compile Include="Assets\Scripts\RecipeGUI.cs" />
