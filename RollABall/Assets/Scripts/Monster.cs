@@ -8,12 +8,11 @@ public class Monster : LivingObject
 	public int hp = 100;
 	public int xp = 50;
 
-	public string enemyTag;
 	public float detectRange;
 
 	void Awake()
 	{
-		weapon = new Knife (enemyTag, this);
+		weapon = new Knife (player.tag, this);
 		health = hp;
 		experience = xp;
 	}

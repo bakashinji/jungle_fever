@@ -16,16 +16,13 @@ public class Knife : Weapon
 			return false;
 		updateFire ();
 
-		int layer = 1 << 8;
-
 		RaycastHit hit;
 		Ray r = new Ray(src, direction);
-		if(Physics.Raycast(r, out hit, Mathf.Infinity, layer))
+		if(Physics.Raycast(r, out hit, Mathf.Infinity))
 		{
-			Debug.Log(hit.collider.name);
-
 			if(hit.collider.tag == base.hitTag)
 			{
+				Debug.Log("Hit " + hit.collider.tag);
 				hit.collider.GetComponent<LivingObject>().OnHit(base._user);
 				return true;
 			}
