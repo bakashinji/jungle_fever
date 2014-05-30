@@ -39,7 +39,7 @@ public class Recipe
     {      
         this.name = name;
         medicine = new Dictionary<String, int>();
-        medicine.Add("Annanas", 5 );
+        medicine.Add("Ananas", 5 );
         medicine.Add("Bananen", 15);
         medicine.Add("Schnittlauch", 25);
         medicine.Add("Salamandablut", 2);
