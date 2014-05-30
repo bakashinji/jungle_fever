@@ -47,10 +47,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Recipe 1.cs" />
+     <Compile Include="Assets\Scripts\Recipe.cs" />
      <Compile Include="Assets\Scripts\RecipeGUI.cs" />
      <Compile Include="Assets\Scripts\Rotator.cs" />
+     <Compile Include="Assets\Scripts\Stats.cs" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>E:/RollABall/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>

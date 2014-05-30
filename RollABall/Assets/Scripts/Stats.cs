@@ -10,29 +10,31 @@
 using System;
 using System.Collections.Generic;
 
-public abstract class Recipe
+public abstract class Stats
 {
-    
-    private static  Dictionary<String, int> items;
-    
-    public static Dictionary<String, int> Items
+
+    private static Dictionary<Recipe, int> diseases;
+
+    public static Dictionary<Recipe, int> Dieseases
     {
         get
         {
-            return items;
+            return diseases;
         }
     }
-    
-    static Recipe()
+
+    static Stats()
     {
+        diseases = new Dictionary<Recipe,int >();
+
+        diseases.Add(new Recipe("Pest"), 5);
         
-        items = new Dictionary<String, int>();
-        items.Add("Annanas", 3);
-        items.Add("Bananen", 15);
-        items.Add("Schnittlauch", 25);
-        items.Add("Salamandablut", 2);
+        diseases.Add(new Recipe("Keuchhusten"), 5);
+        
+        diseases.Add(new Recipe("Fieber"), 5);
+        
+        diseases.Add(new Recipe("Schnupfen"), 5);
     }
-    
 }
 
 

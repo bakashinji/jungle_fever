@@ -10,29 +10,45 @@
 using System;
 using System.Collections.Generic;
 
-public abstract class Recipe
+public class Recipe
 {
+    
+    private Dictionary<String, int> medicine;
 
-    private static  Dictionary<String, int> items;
-
-    public static Dictionary<String, int> Items
+    public String name;
+    
+    public Dictionary<String, int> Medicine
     {
         get
         {
-            return items;
+            return medicine;
         }
     }
 
-    static Recipe()
+    private Dictionary<String, int> vaccination;
+    
+    public Dictionary<String, int> Vaccination
     {
-
-		items = new Dictionary<String, int>;
-        items.Add("Annanas", 3);
-        items.Add("Bananen", 15);
-        items.Add("Schnittlauch", 25);
-        items.Add("Salamandablut", 2);
+        get
+        {
+            return vaccination;
+        }
     }
+    
+    public Recipe(String name)
+    {      
+        this.name = name;
+        medicine = new Dictionary<String, int>();
+        medicine.Add("Annanas", 5 );
+        medicine.Add("Bananen", 15);
+        medicine.Add("Schnittlauch", 25);
+        medicine.Add("Salamandablut", 2);
 
+        vaccination = new Dictionary<String,int >();
+        vaccination.Add("Baumrinde", 15);
+        vaccination.Add("Sesam", 2);
+    }
+    
 }
 
 
