@@ -34,6 +34,8 @@ public class PlayerController : LivingObject
 	// when pressing "Fire3" button (cmd) we start running
 	public float runSpeed = 6.0F;
 	public float blinkDistance = 2.0F;
+	public float blinkCoolDown = 3.0F;
+	private float nextBlink = 0.0F;
 	public float attackOffset = 1.0f;
 
 	public float inAirControlAcceleration = 3.0F;
@@ -395,6 +397,14 @@ public class PlayerController : LivingObject
 	{
 		if (Input.GetKeyUp (KeyCode.Q))
 		{
+			if(nextBlink > Time.time)
+			{
+				Debug.Log("Cannot blink right now");
+				return;
+			}
+
+			nextBlink = Time.time + blinkCoolDown;
+
 			RaycastHit hit;
 			if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
 			{
@@ -482,7 +492,7 @@ public class PlayerController : LivingObject
 		return moveSpeed;
 	}
 	
-	bool IsJumping()
+	public bool IsJumping()
 	{
 		return jumping;
 	}
@@ -495,11 +505,11 @@ public class PlayerController : LivingObject
 	{
 		return moveDirection;
 	}
-	bool IsMovingBackwards()
+	public bool IsMovingBackwards()
 	{
 		return movingBack;
 	}
-	float GetLockCameraTimer()
+	public float GetLockCameraTimer()
 	{
 		return lockCameraTimer;
 	}
