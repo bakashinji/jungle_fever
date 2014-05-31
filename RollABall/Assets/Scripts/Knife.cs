@@ -6,13 +6,8 @@ public class Knife : Weapon
 		: base(tag, obj)
 	{
 		_damage = 20;
-		_range = 3;
+		_range = 10;
 		coolDown = 1;
-	}
-
-	public void incDmg(int value)
-	{
-		_damage += value;
 	}
 
 	public override bool attack(Vector3 src, Vector3 direction)
@@ -22,6 +17,18 @@ public class Knife : Weapon
 		updateFire ();
 
 
+	//	CharacterController controller = GetComponent<CharacterController>();
+	//	collisionFlags = controller.Move (direction);
+
+
+		var audioSource = this._user.GetComponent<AudioSource> ();
+		if (audioSource)
+		{
+			audioSource.Play();
+		}
+
+
+			
 		RaycastHit hit;
 		Ray r = new Ray(src, direction);
 		if(Physics.Raycast(r, out hit, _range))
