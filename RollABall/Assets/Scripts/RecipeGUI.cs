@@ -73,7 +73,7 @@ public class RecipeGUI : MonoBehaviour
         float height = 30;
         
         
-        foreach (var pair in shownRecipe.Medicine)
+        foreach (var pair in d)
         {
             
             Rect countRect = new Rect();
@@ -115,36 +115,39 @@ public class RecipeGUI : MonoBehaviour
     {
         
         GUI.skin = customSkin;
-
-
-        box = new Rect(0, Screen.height * 0.75f, Screen.width * 0.25f, Screen.height * 0.25f);
+		
+		box = new Rect(0, Screen.height * 0.75f, Screen.width * 0.25f, Screen.height * 0.25f);
 
         GUI.Box(box, "");
 
-        scrollPositionStats = GUI.BeginScrollView(new Rect(box.x, box.y + 15, box.width - 10, box.height - 30), scrollPositionStats, new Rect(0,0, box.width * 0.9f, Stats.Dieseases.Count * 40 + 30)); 
+		GameObject[] objects = GameObject.FindGameObjectsWithTag("disease");
+
+        scrollPositionStats = GUI.BeginScrollView(new Rect(box.x, box.y + 15, box.width - 10, box.height - 30), scrollPositionStats, new Rect(0,0, box.width * 0.9f, objects.Length * 40 + 30)); 
 
         float y = 10;
 
-        foreach (var rec in Stats.Dieseases)
+        foreach (var rec in objects)
         {
+
+			Disease disease = rec.GetComponent<Disease>();
+			Recipe rep = disease.recipe;
+			int infected = disease.population.Infected;
             GUIContent content = new GUIContent("");
             GUIStyle style = GUIStyle.none;
            
-            Rect countRect = new Rect(20,y,20,30);
-            GUI.Label(countRect, rec.Value.ToString());
+            Rect countRect = new Rect(20,y,70,30);
+            GUI.Label(countRect, infected.ToString());
 
-            Rect nameRect = new Rect(60,y, box.width - 70, 30);
+            Rect nameRect = new Rect(100,y, box.width - 70, 30);
 
-
-            Recipe rep = rec.Key;
             GUI.Label(nameRect, rep.name);
 
             GUI.Label(new Rect(20,y,box.width - 30, 30), content, style);
 
             if((new Rect(20,y,box.width - 30, 30)).Contains(Event.current.mousePosition))
             {
-                shownRecipe = rec.Key;
-            }
+                shownRecipe = rep;
+			}
 
             y += 40;
         }
