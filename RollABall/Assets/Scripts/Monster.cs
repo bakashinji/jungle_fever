@@ -4,44 +4,82 @@ using System.Collections;
 public class Monster : LivingObject
 {
 	public LivingObject player;
-
+	private bool enable = true;
+	
 	public int hp = 100;
 	public int xp = 50;
-
+	
 	public float detectRange;
-
+	
+	public bool ShowRollover;
+	private Rect objRect;
+	private Vector2 MousePos;
+	public Vector3 offset = new Vector3 (16, 16, 0);
+	
 	void Awake()
 	{
-		weapon = new Knife (player.tag, this);
-		health = hp;
-		experience = xp;
+		if (!player)
+			enabled = false;
+		else
+		{
+			weapon = new Knife (player.tag, this);
+			health = hp;
+			experience = xp;
+		}
+		
+		ShowRollover = false;
+		objRect = new Rect(0, 0, 200, 35);
+		MousePos = new Vector2(0, 0);
 	}
-
+	
 	public override void OnHit(LivingObject attacker)
 	{
 		health -= attacker.weapon.damage;
 		Debug.Log(name + " remaining health: " + health);
-
+		
 		if (health <= 0)
 		{
 			Debug.Log(attacker.name + " killed " + name);
-            gameObject.SetActive(false);
+			gameObject.SetActive(false);
 		}
 	}
-
+	
+	void OnMouseEnter()
+	{
+		ShowRollover = true;
+	}
+	void OnMouseExit()
+	{
+		ShowRollover = false;
+	}
+	void OnGUI()
+	{
+		if (ShowRollover)
+		{
+			MousePos = Input.mousePosition + offset;
+			objRect.x = MousePos.x;
+			
+			objRect.y = Mathf.Abs(MousePos.y - Camera.main.pixelHeight);
+			GUI.Label(objRect, name + " health: " + health);
+		}
+	}
+	
 	void Update()
 	{
-		float playerDistance = LivingObject.distance (this, player);
-		if (playerDistance < detectRange)
+		if (enable)
 		{
-			//Debug.Log(name + " detected player");
-
-            if (playerDistance < weapon.range && health > 0)
+			float playerDistance = LivingObject.distance (this, player);
+			
+			if (playerDistance < detectRange)
 			{
-				var direction = (player.transform.position -transform.position).normalized;
-				weapon.attack(transform.position, direction);
+				//Debug.Log(name + " detected player");
+				
+				if (playerDistance < weapon.range && health > 0)
+				{
+					var direction = (player.transform.position - transform.position).normalized;
+					weapon.attack (transform.position, direction);
+				}
 			}
-
 		}
 	}
 }
