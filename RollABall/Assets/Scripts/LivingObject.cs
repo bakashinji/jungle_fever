@@ -26,7 +26,13 @@ public abstract class LivingObject : MonoBehaviour
 
 	public static float distance(LivingObject a, LivingObject b)
 	{
-		return Vector3.Distance (a.transform.position, b.transform.position);
+        if (a && b)
+            return Vector3.Distance(a.transform.position, b.transform.position);
+        else
+        {
+            Debug.Log("Try to compare two objects, that are no Objects");
+            return -1;
+        }
 	}
 
 	

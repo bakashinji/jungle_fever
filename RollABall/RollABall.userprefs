@@ -1,12 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\Desktop\RollABall\Assets\Scripts\Monster.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\Desktop\RollABall\Assets\Scripts\PlayerController.cs">
     <Files>
-      <File FileName="..\..\..\..\Desktop\RollABall\Assets\Scripts\Monster.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\..\Desktop\RollABall\Assets\Scripts\PlayerController.cs" Line="373" Column="27" />
+      <File FileName="..\..\..\..\Desktop\RollABall\Assets\Scripts\Knife.cs" Line="15" Column="1" />
+      <File FileName="..\..\..\..\Desktop\RollABall\Assets\Scripts\Monster.cs" Line="15" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Philipp\Desktop\RollABall\Assets\Scripts\Knife.cs" line="15" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

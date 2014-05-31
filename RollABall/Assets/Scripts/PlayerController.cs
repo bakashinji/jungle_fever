@@ -34,7 +34,8 @@ public class PlayerController : LivingObject
 	// when pressing "Fire3" button (cmd) we start running
 	public float runSpeed = 6.0F;
 	public float blinkDistance = 2.0F;
-	
+	public float attackOffset = 1.0f;
+
 	public float inAirControlAcceleration = 3.0F;
 	
 	// How high do we jump when pressing jump and letting go immediately
@@ -266,7 +267,11 @@ public class PlayerController : LivingObject
     {
         if (other.gameObject.tag == pickUpTag)
         {
-			other.gameObject.GetComponent<PickUp>().OnPickUp(this);
+			var obj = other.gameObject.GetComponent<PickUp>();
+            if (obj)
+                obj.OnPickUp(this);
+            else
+                Debug.Log("Collider is not a Pickup");
         }
     }
 	
@@ -378,6 +383,7 @@ public class PlayerController : LivingObject
 			{
 				var hitPoint = hit.point;
 				hitPoint.y = transform.position.y;
+				hitPoint.y += attackOffset;
 
 				var direction = (hitPoint -transform.position).normalized;
 
