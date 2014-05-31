@@ -25,7 +25,7 @@ public class Monster : LivingObject
 		if (health <= 0)
 		{
 			Debug.Log(attacker.name + " killed " + name);
-			gameObject.SetActive (false);
+            gameObject.SetActive(false);
 		}
 	}
 
@@ -36,7 +36,7 @@ public class Monster : LivingObject
 		{
 			//Debug.Log(name + " detected player");
 
-			if(playerDistance < weapon.range)
+            if (playerDistance < weapon.range && health > 0)
 			{
 				var direction = (player.transform.position -transform.position).normalized;
 				weapon.attack(transform.position, direction);

@@ -34,7 +34,10 @@ public class PlayerController : LivingObject
 	// when pressing "Fire3" button (cmd) we start running
 	public float runSpeed = 6.0F;
 	public float blinkDistance = 2.0F;
-	
+	public float blinkCoolDown = 3.0F;
+	private float nextBlink = 0.0F;
+	public float attackOffset = 1.0f;
+
 	public float inAirControlAcceleration = 3.0F;
 	
 	// How high do we jump when pressing jump and letting go immediately
@@ -267,7 +270,11 @@ public class PlayerController : LivingObject
     {
         if (other.gameObject.tag == pickUpTag)
         {
-			other.gameObject.GetComponent<PickUp>().OnPickUp(this);
+			var obj = other.gameObject.GetComponent<PickUp>();
+            if (obj)
+                obj.OnPickUp(this);
+            else
+                Debug.Log("Collider is not a Pickup");
         }
 		if (other.gameObject.tag == homeTag) {
 			other.gameObject.GetComponent<Deliver>().OnDeliver(this);
@@ -382,6 +389,7 @@ public class PlayerController : LivingObject
 			{
 				var hitPoint = hit.point;
 				hitPoint.y = transform.position.y;
+				hitPoint.y += attackOffset;
 
 				var direction = (hitPoint -transform.position).normalized;
 
@@ -393,6 +401,14 @@ public class PlayerController : LivingObject
 	{
 		if (Input.GetKeyUp (KeyCode.Q))
 		{
+			if(nextBlink > Time.time)
+			{
+				Debug.Log("Cannot blink right now");
+				return;
+			}
+
+			nextBlink = Time.time + blinkCoolDown;
+
 			RaycastHit hit;
 			if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
 			{
@@ -480,7 +496,7 @@ public class PlayerController : LivingObject
 		return moveSpeed;
 	}
 	
-	bool IsJumping()
+	public bool IsJumping()
 	{
 		return jumping;
 	}
@@ -493,11 +509,11 @@ public class PlayerController : LivingObject
 	{
 		return moveDirection;
 	}
-	bool IsMovingBackwards()
+	public bool IsMovingBackwards()
 	{
 		return movingBack;
 	}
-	float GetLockCameraTimer()
+	public float GetLockCameraTimer()
 	{
 		return lockCameraTimer;
 	}

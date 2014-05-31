@@ -16,15 +16,23 @@ public class Knife : Weapon
 			return false;
 		updateFire ();
 
+
 		RaycastHit hit;
 		Ray r = new Ray(src, direction);
-		if(Physics.Raycast(r, out hit, Mathf.Infinity))
+		if(Physics.Raycast(r, out hit, _range))
 		{
+			Debug.Log(hit.collider.name);
+
 			if(hit.collider.tag == base.hitTag)
 			{
-				Debug.Log("Hit " + hit.collider.tag);
-				hit.collider.GetComponent<LivingObject>().OnHit(base._user);
-				return true;
+                var obj = hit.collider.GetComponent<LivingObject>();
+                if (obj)
+                {
+                    obj.OnHit(base._user);
+                    return true;
+                }
+                else
+                    Debug.Log(hit.collider.name + " is not a LivingObject!");
 			}
 		}
 		return false;
