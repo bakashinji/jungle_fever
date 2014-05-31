@@ -9,11 +9,12 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
-public class Recipe
+public class Recipe: MonoBehaviour
 {
     
-    private Dictionary<String, int> medicine;
+    public Dictionary<String, int> medicine;
 
     public String name;
     
@@ -34,8 +35,17 @@ public class Recipe
             return vaccination;
         }
     }
+
+	public Recipe()
+	{
+		medicine = new Dictionary<String, int>();
+		medicine.Add("Starflower", 6 );
+		medicine.Add ("Mint", 1);
+		vaccination = new Dictionary<String,int >();
+		vaccination.Add("Mint", 4);
+	}
     
-    public Recipe(String name)
+    /*public Recipe(String name)
     {      
         this.name = name;
         medicine = new Dictionary<String, int>();
@@ -55,7 +65,7 @@ public class Recipe
 		vaccination.Add("Sesam4", 2);
 
 
-    }
+    }*/
     
 }
 

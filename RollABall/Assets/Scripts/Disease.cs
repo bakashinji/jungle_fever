@@ -28,7 +28,6 @@ public class Disease : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		recipe = new Recipe (diseaseName);
 		InvokeRepeating ("DiseaseSimulator", 0.1f, 1.0f);
 	}
 

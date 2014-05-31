@@ -27,7 +27,8 @@ public abstract class Inventory
     {
         items = new Dictionary<String,int >();
 
-        items.Add("Ananas", 5);
+        items.Add("Starflower", 8);
+		items.Add ("Mint", 2);
     }
 }
 

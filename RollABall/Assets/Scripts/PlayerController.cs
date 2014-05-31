@@ -100,6 +100,7 @@ public class PlayerController : LivingObject
 
 	public string hitTag = "Enemy";
 	public string pickUpTag = "PickUp";
+	public string homeTag = "Home";
 
 	// Use this for initialization
 	void Awake()
@@ -268,6 +269,9 @@ public class PlayerController : LivingObject
         {
 			other.gameObject.GetComponent<PickUp>().OnPickUp(this);
         }
+		if (other.gameObject.tag == homeTag) {
+			other.gameObject.GetComponent<Deliver>().OnDeliver(this);
+		}
     }
 	
 

@@ -3,8 +3,8 @@ using System.Collections;
 
 public class GameLogic : MonoBehaviour {
 
-	Population population;
-	Character character;
+	public Population population;
+	public Character character;
 
 	// Use this for initialization
 	void Start () {
