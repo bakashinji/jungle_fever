@@ -17,6 +17,7 @@ public class Character : MonoBehaviour {
 	private int maxHp = 100;
 	Vector2 hpPos = new Vector2(60,20);
 	Vector2 hpSize = new Vector2(150,50);
+	public int hpReg = 1;
 
 	private int level = 1;
 	private int exp = 0;
@@ -42,11 +43,14 @@ public class Character : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("test", 0.1f, 1.0f);
+		InvokeRepeating ("regHP", 0.1f, 1.0f);
 	}
 
-	void test() {
-		exp++;
+	void regHP() {
+		if ((hpReg + hp) > maxHp)
+			hp = maxHp;
+		else
+			hp += hpReg;
 	}
 
 	int AccSum(int level, int offsetExp){
@@ -65,6 +69,11 @@ public class Character : MonoBehaviour {
 			lvlExp -= neededExp;
 			neededExp += offsetExp;
 		}
+
+		// HP
+
+		//int regHP = (int)(maxHp * hpRegRate);
+
 	}
 	
 	void OnGUI()

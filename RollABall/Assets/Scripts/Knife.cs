@@ -10,6 +10,11 @@ public class Knife : Weapon
 		coolDown = 1;
 	}
 
+	public void incDmg(int value)
+	{
+		_damage += value;
+	}
+
 	public override bool attack(Vector3 src, Vector3 direction)
 	{
 		if (!isReady ())

@@ -95,21 +95,16 @@ public class PlayerController : LivingObject
 	
 	
 	private bool isControllable = true;
-	
-
-	public int hp = 1000;
-	public int xp = 0;
-
 
 	public string hitTag = "Enemy";
 	public string pickUpTag = "PickUp";
 	public string homeTag = "Home";
 
+	public Character character;
+
 	// Use this for initialization
 	void Awake()
 	{
-		health = hp;
-		experience = xp;
 
 		moveDirection = transform.TransformDirection(Vector3.forward);
 
@@ -481,10 +476,10 @@ public class PlayerController : LivingObject
 
 	public override void OnHit(LivingObject attacker)
 	{
-		health -= attacker.weapon.damage;
-		Debug.Log(name + " remaining health: " + health);
+		character.Hp -= attacker.weapon.damage;
+		Debug.Log(name + " remaining health: " + character.Hp);
 
-		if (health <= 0)
+		if (character.Hp <= 0)
 		{
 			Debug.Log(attacker.name + " killed player :(");
 		}

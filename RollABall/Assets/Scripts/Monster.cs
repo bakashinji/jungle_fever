@@ -22,7 +22,7 @@ public class Monster : LivingObject
 			enabled = false;
 		else
 		{
-			weapon = new Knife (player.tag, this);
+			weapon = new PlantWeapon (player.tag, this);
 			health = hp;
 			experience = xp;
 		}
@@ -41,6 +41,7 @@ public class Monster : LivingObject
 		{
 			Debug.Log(attacker.name + " killed " + name);
 			gameObject.SetActive(false);
+			((PlayerController)attacker).character.Exp += 4;
 		}
 	}
 	
