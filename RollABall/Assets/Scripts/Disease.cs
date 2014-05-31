@@ -30,7 +30,7 @@ public class Disease : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		GUI.DrawTexture(new Rect(10, 600, 30, 30),icon);
+		GUI.DrawTexture(new Rect(10, 400, 30, 30),icon);
 	}
 	
 	// Update is called once per frame

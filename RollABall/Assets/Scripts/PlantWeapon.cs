@@ -7,8 +7,8 @@ public class PlantWeapon : Weapon
 	public PlantWeapon (string tag, LivingObject obj)
 		: base(tag, obj)
 	{
-		_damage = 10;
-		_range = 5;
+		_damage = 20;
+		_range = 7;
 		coolDown = 2;
 	}
 	

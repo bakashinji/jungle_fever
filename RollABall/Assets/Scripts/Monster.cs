@@ -63,7 +63,7 @@ public class Monster : LivingObject
 			return;
 		}
 
-		weapon = new Knife (player.tag, this);
+		weapon = new PlantWeapon (player.tag, this);
 		health = hp;
 		experience = xp;
 	}
