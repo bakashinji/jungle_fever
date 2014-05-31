@@ -1,20 +1,27 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Deliver.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Character.cs">
     <Files>
-      <File FileName="Assets\Scripts\RecipeGUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PickUp.cs" Line="9" Column="13" />
+      <File FileName="Assets\Scripts\RecipeGUI.cs" Line="17" Column="5" />
       <File FileName="Assets\Scripts\CameraController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PickUp.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PickUp.cs" Line="21" Column="1" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="105" Column="32" />
       <File FileName="Assets\Scripts\Disease.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Recipe.cs" Line="43" Column="28" />
+      <File FileName="Assets\Scripts\Recipe.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Population.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Stats.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Inventory.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\RecipeGUI.cs" Line="171" Column="23" />
-      <File FileName="Assets\Scripts\GameLogic.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Deliver.cs" Line="43" Column="17" />
+      <File FileName="Assets\Scripts\Inventory.cs" Line="30" Column="9" />
+      <File FileName="Assets\Scripts\GameLogic.cs" Line="47" Column="34" />
+      <File FileName="Assets\Scripts\Deliver.cs" Line="13" Column="3" />
       <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonController.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\LivingObject.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Minimap.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Monster.cs" Line="37" Column="27" />
+      <File FileName="Assets\Scripts\Character.cs" Line="59" Column="23" />
+      <File FileName="Assets\Scripts\Weapon.cs" Line="51" Column="1" />
+      <File FileName="Assets\Scripts\Knife.cs" Line="15" Column="20" />
+      <File FileName="Assets\Scripts\PlantWeapon.cs" Line="17" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

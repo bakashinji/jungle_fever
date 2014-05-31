@@ -15,8 +15,8 @@ public class Character : MonoBehaviour {
 	}
 
 	private int maxHp = 100;
-	Vector2 hpPos = new Vector2(60,20);
-	Vector2 hpSize = new Vector2(150,50);
+	Vector2 hpPos = new Vector2(20,20);
+	Vector2 hpSize = new Vector2(120,40);
 	public int hpReg = 1;
 
 	private int level = 1;
@@ -34,8 +34,8 @@ public class Character : MonoBehaviour {
 	int lvlExp = 0;
 	int neededExp = 5;
 	int offsetExp = 5;
-	Vector2 expPos = new Vector2(60,60);
-	Vector2 expSize = new Vector2(150,50);
+	Vector2 expPos = new Vector2(20,60);
+	Vector2 expSize = new Vector2(120,40);
 
 	public Texture2D progressBarEmpty;
 	public Texture2D progressBarHP;
@@ -89,6 +89,8 @@ public class Character : MonoBehaviour {
 		GUI.EndGroup();
 
 		// ExpBar
+
+		string disLevel = "Level: " + level.ToString ();
 		
 		//draw the background:
 		GUI.BeginGroup(new Rect(expPos.x, expPos.y, expSize.x, expSize.y));
@@ -96,7 +98,8 @@ public class Character : MonoBehaviour {
 			//draw the filled-in part:
 			GUI.BeginGroup(new Rect(0,0, expSize.x * lvlExp/neededExp, expSize.y));
 				GUI.Box(new Rect(0,0, expSize.x, expSize.y), progressBarExp);
-			GUI.EndGroup();
+					GUI.Label(new Rect(0,0, expSize.x, expSize.y), disLevel);
+		        GUI.EndGroup();
 		GUI.EndGroup();
 
 	} 

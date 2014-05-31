@@ -6,8 +6,6 @@ public class Disease : MonoBehaviour {
 
 	public Texture icon;
 	public string diseaseName;
-	public List<Object> fastTreatment;
-	public List<Object> longTimeTreatment;
 	public int baseSpreadingRate = 1; // independent from amount of sick people
 	public int infectionSpreadingRate = 1; // dependent from amout of sick people
 	public int infectionSpreadingPerson = 5; // amount of person need for spreading
@@ -32,7 +30,7 @@ public class Disease : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		GUI.DrawTexture(new Rect(10, 40, 30, 30),icon);
+		GUI.DrawTexture(new Rect(10, 600, 30, 30),icon);
 	}
 	
 	// Update is called once per frame

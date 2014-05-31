@@ -6,6 +6,7 @@ public class Deliver : MonoBehaviour
 {
 	
 	public String name;
+
 	
 	public void OnDeliver(LivingObject obj)
 	{
@@ -57,6 +58,7 @@ public class Deliver : MonoBehaviour
 										inv [obj] += med [obj];
 								}
 						} else {
+								GameLogic.won = true;
 								Debug.Log ("you fucking won!!!!!!!!!!!");
 						}
 				
