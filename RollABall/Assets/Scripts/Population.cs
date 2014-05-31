@@ -35,8 +35,8 @@ public class Population : MonoBehaviour {
 		GUI.skin = skin;
 		int intpop = (int)population;
 		string text = intpop.ToString ();
-		GUI.Label(new Rect(10, 10, 100, 30), text);
-		GUI.Label(new Rect(10, 80, 100, 30), infected.ToString());
+		GUI.Label(new Rect(15, 500, 100, 30), text);
+		//GUI.Label(new Rect(10, 80, 100, 30), infected.ToString());
 	}
 	
 	// Update is called once per frame
